@@ -419,7 +419,7 @@ function start(opts) {
     }
     wmts.id = id;
     wmts.name = (serving.styles[id] || serving.rendered[id]).name;
-    wmts.baseUrl = `${req.get('X-Forwarded-Protocol') ? req.get('X-Forwarded-Protocol') : req.protocol}://${req.get('host')}`;
+    wmts.baseUrl = `${req.get('X-Forwarded-Protocol') ? req.get('X-Forwarded-Protocol') : req.protocol}://${req.get('host')}${req.get('X-Rewrite-URL')}`;
     return wmts;
   });
 
